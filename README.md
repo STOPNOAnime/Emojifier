@@ -1,2 +1,6 @@
 # Emojifier
- Makes emoji letters from your text
+ Made using C++ and Qt.
+ You need Qt Creator to compile it.
+
+![Screenshot](screenshot.png)
+ 
