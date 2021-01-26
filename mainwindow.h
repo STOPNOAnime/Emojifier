@@ -4,10 +4,10 @@
 #include <QMainWindow>
 #include <sstream>
 #include <string>
-#include <random>
 #include <QFile>
 #include <QTextStream>
 #include <QClipboard>
+#include <QRandomGenerator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,8 +26,6 @@ private slots:
 
     void on_nextletter_clicked();
 
-    void generate();
-
     void on_generatebutton_clicked();
 
     void on_readconfig_clicked();
@@ -36,10 +34,13 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
     int currentNumber = 0;
     int inputtextletters = 0;
     QString backroundemojistring = "";
     QString foregroundemojisstring = "";
     QString inputtextstring = "";
+
+    void generate();
 };
 #endif // MAINWINDOW_H

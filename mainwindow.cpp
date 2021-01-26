@@ -13,14 +13,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::generate(){
+void MainWindow::generate()
+{
     #include "font8x8_basic.h"
 
     QStringList list = foregroundemojisstring.split(QRegExp("\\s+"));
-
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::uniform_int_distribution<int> distribution(0,list.size()-1);
 
     std::stringstream ss;
 
@@ -31,7 +28,7 @@ void MainWindow::generate(){
     for (x=0; x < 8; x++) {
         for (y=0; y < 8; y++) {
             set = bitmap[x] & 1 << y;
-            ss<<(set ? (list[distribution(g)].toStdString() + " ") : (backroundemojistring.toStdString() + " "));
+            ss<<(set ? (list[QRandomGenerator::global()->bounded(list.size())].toStdString() + " ") : (backroundemojistring.toStdString() + " "));
         }
         ss<<"\n";
     }
